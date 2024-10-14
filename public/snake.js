@@ -39,3 +39,18 @@ export function onBody(obj) {
         return piece.x === obj.x && piece.y === obj.y
     })
 }
+
+export function headOutsideGrid() {
+    const snakeHead = snakeBody[0]
+    return snakeHead.x < 1 || snakeHead.x > 21
+        || snakeHead.y < 1 || snakeHead.y > 21
+}
+
+export function headOnBody() {
+    return snakeBody.some((piece, index) => {
+        if(index === 0 || snakeBody.length === 2) {
+            return false
+        }
+        return piece.x === snakeBody[0].x && piece.y === snakeBody[0].y
+    })
+}

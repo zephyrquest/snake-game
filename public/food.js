@@ -1,9 +1,11 @@
 import {onBody as onBodySnake, grow as growSnake} from "./snake.js"
+import {eatFood as playEatFoodAudio} from "./audio.js";
 
 let food = {x: 3, y: 4}
 
 export function update() {
     if(onBodySnake(food)) {
+        playEatFoodAudio()
         growSnake(1)
         food = generateRandomPosition()
     }
